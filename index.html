@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Ridge Engineering Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C58A42;
+            --bg1: #0f0f1a;
+            --bg2: #1a1a2a;
+            --bg3: #222232;
+            --line: #333344;
+            --muted: #a0a0b0;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg1);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links .btn {
+            background: var(--gold);
+            color: var(--bg1);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: var(--bg2);
+            z-index: 999;
+            padding: 80px 30px 30px;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 1.1rem;
+        }
+        
+        .mobile-menu .btn {
+            background: var(--gold);
+            color: var(--bg1);
+            text-align: center;
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--muted);
+        }
+        
+        /* HERO */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: 
+                linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.82)),
+                url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2200&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 60px;
+        }
+        
+        .hero-tag {
+            display: inline-block;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--bg1);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e6a850;
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(197, 138, 66, 0.1);
+        }
+        
+        /* STATS */
+        .stats {
+            background: var(--bg2);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: var(--bg3);
+            border: 1px solid var(--line);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .stat-card h2 {
+            font-size: 3.5rem;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 12px;
+        }
+        
+        .stat-card p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+        
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            padding: 40px 30px;
+            border-radius: 8px;
+            transition: all 0.4s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(197, 138, 66, .45);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+        
+        .service-card p {
+            color: var(--muted);
+        }
+        
+        /* PROJECTS */
+        .projects {
+            background: var(--bg2);
+        }
+        
+        .project {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+        
+        .project:last-child {
+            margin-bottom: 0;
+        }
+        
+        .project img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-info span {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: .8rem;
+        }
+        
+        .project-info h2 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .project-info p {
+            color: var(--muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .project-meta div h4 {
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .project-meta div p {
+            color: var(--muted);
+        }
+        
+        /* EXECUTIVES */
+        .executive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .executive-card {
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            padding: 35px 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .executive-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .executive-card span {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .8rem;
+        }
+        
+        .executive-card p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+        
+        /* NEWS */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            border: 1px solid var(--line);
+            background: var(--bg2);
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-content span {
+            color: var(--gold);
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+        
+        .news-content h3 {
+            margin: 15px 0;
+            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.4;
+        }
+        
+        .news-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--bg2);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--line);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-description {
+            color: var(--muted);
+            margin-top: 20px;
+            max-width: 300px;
+        }
+        
+        .footer-grid h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+        
+        .footer-grid ul {
+            list-style: none;
+        }
+        
+        .footer-grid ul li {
+            color: var(--muted);
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--line);
+            padding-top: 25px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* MOBILE STYLES */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .project {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .project img {
+                height: 400px;
+            }
+            
+            .project-info h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                gap: 20px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .stat-card h2 {
+                font-size: 2.8rem;
+            }
+            
+            .project-info h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="investors.html">Investors</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                Diamond<span>Ridge</span>
+            </div>
+            
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="leadership.html">Leadership</a>
+                <a href="investors.html">Investors</a>
+                <a href="careers.html">Careers</a>
+                <a href="contact.html" class="btn">Contact</a>
+            </nav>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-content reveal">
+            <span class="hero-tag">
+                Global Vertical Engineering Corporation
+            </span>
+            <h1>
+                Engineering Tomorrow’s Global Skylines.
+            </h1>
+            <p>
+                Diamond Ridge Engineering Group is an international high-rise construction and structural engineering corporation delivering multi-billion-dollar commercial developments, institutional super-structures, and advanced urban infrastructure systems across global markets.
+            </p>
+            <div class="hero-buttons">
+                <a href="projects.html" class="btn">
+                    Explore Developments
+                </a>
+                <a href="about.html" class="btn-outline">
+                    Corporate Overview
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-card reveal">
+                <h2 class="counter" data-target="148">148</h2>
+                <p>Total Global Project Valuation (Billion USD)</p>
+            </div>
+            <div class="stat-card reveal">
+                <h2 class="counter" data-target="38">38</h2>
+                <p>Countries Operated In</p>
+            </div>
+            <div class="stat-card reveal">
+                <h2 class="counter" data-target="22000">22000</h2>
+                <p>Global Workforce</p>
+            </div>
+            <div class="stat-card reveal">
+                <h2 class="counter" data-target="340">340</h2>
+                <p>Completed Vertical Projects</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section>
+        <div class="container">
+            <h2 class="section-title reveal">
+                Integrated Enterprise Services
+            </h2>
+            <p class="section-text reveal">
+                Diamond Ridge Engineering Group provides full-scale commercial engineering, construction management, structural systems integration, and urban development execution for governments, institutions, and private global clients.
+            </p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <h3>Commercial Towers</h3>
+                    <p>
+                        High-rise corporate tower construction utilizing advanced structural steel frameworks and composite core systems.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Luxury Residential Engineering</h3>
+                    <p>
+                        Premium residential skyscraper developments engineered for high-density metropolitan environments.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Institutional Infrastructure</h3>
+                    <p>
+                        Complex healthcare, research, and institutional facilities requiring specialized engineering integration.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>MEP Systems Integration</h3>
+                    <p>
+                        Advanced mechanical, electrical, and plumbing systems coordinated for enterprise-scale developments.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Urban Development</h3>
+                    <p>
+                        Large-scale mixed-use urban development planning and execution across international markets.
+                    </p>
+                </div>
+                <div class="service-card reveal">
+                    <h3>Construction Management</h3>
+                    <p>
+                        Full lifecycle project oversight, procurement systems, logistics, and global construction operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title reveal">
+                Featured Global Developments
+            </h2>
+            <p class="section-text reveal">
+                Our portfolio includes landmark commercial skyscrapers, luxury vertical communities, and institutional engineering projects across major financial and metropolitan centers.
+            </p>
+            <div class="project reveal">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1800&auto=format&fit=crop" alt="Apex International Tower">
+                <div class="project-info">
+                    <span>Singapore • Financial District</span>
+                    <h2>
+                        Apex International Tower
+                    </h2>
+                    <p>
+                        An 88-story financial headquarters engineered with high-performance composite structural systems, intelligent building integration, and advanced environmental resistance technologies.
+                    </p>
+                    <a href="projects.html" class="btn">
+                        View Development
+                    </a>
+                    <div class="project-meta">
+                        <div>
+                            <h4>Valuation</h4>
+                            <p>$2.8B USD</p>
+                        </div>
+                        <div>
+                            <h4>Elevation</h4>
+                            <p>88 Stories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project reveal">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1800&auto=format&fit=crop" alt="Azure Crown Residences">
+                <div class="project-info">
+                    <span>Dubai • Luxury Residential</span>
+                    <h2>
+                        Azure Crown Residences
+                    </h2>
+                    <p>
+                        A next-generation luxury residential skyscraper utilizing panoramic curtain wall systems and advanced vertical engineering techniques.
+                    </p>
+                    <a href="projects.html" class="btn">
+                        View Development
+                    </a>
+                    <div class="project-meta">
+                        <div>
+                            <h4>Valuation</h4>
+                            <p>$1.6B USD</p>
+                        </div>
+                        <div>
+                            <h4>Elevation</h4>
+                            <p>102 Stories</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXECUTIVES -->
+    <section>
+        <div class="container">
+            <h2 class="section-title reveal">
+                Executive Leadership
+            </h2>
+            <p class="section-text reveal">
+                Diamond Ridge Engineering Group is led by an international executive board specializing in commercial construction, engineering systems, procurement logistics, and enterprise development operations.
+            </p>
+            <div class="executive-grid">
+                <div class="executive-card reveal">
+                    <h3>Andrew Alejandro Diego</h3>
+                    <span>
+                        Chief Executive Officer
+                    </span>
+                    <p>
+                        Leading global expansion strategy, enterprise development operations, and international construction partnerships.
+                    </p>
+                </div>
+                <div class="executive-card reveal">
+                    <h3>Sarah Jenkins</h3>
+                    <span>
+                        Chief Operations Officer
+                    </span>
+                    <p>
+                        Overseeing worldwide construction execution, procurement systems, and operational infrastructure.
+                    </p>
+                </div>
+                <div class="executive-card reveal">
+                    <h3>Marcus Vance</h3>
+                    <span>
+                        Head of Structural Engineering
+                    </span>
+                    <p>
+                        Directing advanced structural engineering systems and high-rise construction methodologies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title reveal">
+                Corporate Newsroom
+            </h2>
+            <p class="section-text reveal">
+                Latest announcements, project acquisitions, engineering breakthroughs, and global expansion developments from Diamond Ridge Engineering Group.
+            </p>
+            <div class="news-grid">
+                <div class="news-card reveal">
+                    <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1200&auto=format&fit=crop" alt="News Image">
+                    <div class="news-content">
+                        <span>May 2013</span>
+                        <h3>
+                            Diamond Ridge Secures $4.8B Singapore Development Contract
+                        </h3>
+                        <p>
+                            The corporation expands Asia-Pacific operations with a newly approved mixed-use financial district project.
+                        </p>
+                    </div>
+                </div>
+                <div class="news-card reveal">
+                    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop" alt="News Image">
+                    <div class="news-content">
+                        <span>April 2018</span>
+                        <h3>
+                            Dubai Residential Expansion Phase II Announced
+                        </h3>
+                        <p>
+                            Diamond Ridge confirms the second phase of the Azure Crown vertical luxury development.
+                        </p>
+                    </div>
+                </div>
+                <div class="news-card reveal">
+                    <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1200&auto=format&fit=crop" alt="News Image">
+                    <div class="news-content">
+                        <span>March 2020</span>
+                        <h3>
+                            Corporate Sustainability Initiative Reaches Global Milestone
+                        </h3>
+                        <p>
+                            Enterprise engineering operations continue implementing low-carbon construction systems worldwide.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="margin-bottom:20px;">
+                        Diamond<span>Ridge</span>
+                    </div>
+                    <p class="footer-description">
+                        Diamond Ridge Engineering Group is a multinational engineering corporation specializing in commercial super-structures, vertical construction systems, and institutional development projects across global markets.
+                    </p>
+                </div>
+                <div>
+                    <h4>Corporate</h4>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Leadership</li>
+                        <li>Investors</li>
+                        <li>Careers</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Global Offices</h4>
+                    <ul>
+                        <li>Chicago</li>
+                        <li>New York</li>
+                        <li>Dubai</li>
+                        <li>Singapore</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>corporate@diamondridge-group.com</li>
+                        <li>+1 (312) 555-8801</li>
+                        <li>Global Headquarters</li>
+                        <li>Chicago, Illinois</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>
+                    © 2026 Diamond Ridge Engineering Group. All rights reserved.
+                </span>
+                <span>
+                    Global Vertical Engineering Corporation
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            });
+        });
+        
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        });
+        
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const increment = target / 200; // Adjust for animation speed
+            let current = 0;
+            
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    counter.innerText = Math.ceil(current);
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            // Start counter when element is in viewport
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateCounter();
+                        counterObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            counterObserver.observe(counter);
+        });
+    </script>
+</body>
+</html>

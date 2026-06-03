@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Careers | Diamond Ridge Engineering Group</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050506;
+    --bg2:#101216;
+    --bg3:#171920;
+    --gold:#c58a42;
+    --gold-dark:#9f6b30;
+    --text:#ffffff;
+    --muted:#a5a8af;
+    --line:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1450px,92%);
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:rgba(5,5,6,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:'Montserrat',sans-serif;
+    font-size:1.3rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.85rem;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.btn{
+    background:var(--gold);
+    color:white !important;
+    padding:15px 28px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--gold-dark);
+}
+
+/* HERO */
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.9)),
+    url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2200&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:1050px;
+    padding-top:120px;
+}
+
+.hero-tag{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:.8rem;
+    display:block;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:clamp(4rem,8vw,7rem);
+    line-height:.95;
+    font-family:'Montserrat',sans-serif;
+    margin-bottom:30px;
+}
+
+.hero p{
+    color:#d7d7d7;
+    max-width:760px;
+    font-size:1.1rem;
+}
+
+/* CULTURE */
+
+.section-title{
+    font-size:3.5rem;
+    margin-bottom:25px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.section-text{
+    color:var(--muted);
+    max-width:900px;
+    margin-bottom:70px;
+}
+
+.culture-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.culture-card{
+    background:var(--bg2);
+    border:1px solid var(--line);
+    padding:45px;
+    transition:.4s;
+}
+
+.culture-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(197,138,66,.35);
+}
+
+.culture-number{
+    color:var(--gold);
+    font-size:3rem;
+    font-family:'Montserrat',sans-serif;
+    margin-bottom:20px;
+}
+
+.culture-card h3{
+    font-size:1.7rem;
+    margin-bottom:18px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.culture-card p{
+    color:var(--muted);
+}
+
+/* JOBS */
+
+.jobs{
+    background:var(--bg2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.job-list{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.job-card{
+    background:var(--bg3);
+    border:1px solid var(--line);
+    padding:40px;
+    transition:.4s;
+}
+
+.job-card:hover{
+    border-color:rgba(197,138,66,.35);
+    transform:translateY(-5px);
+}
+
+.job-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.job-top h3{
+    font-size:2rem;
+    font-family:'Montserrat',sans-serif;
+}
+
+.job-location{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.8rem;
+}
+
+.job-card p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.job-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.job-tags span{
+    background:#0d0f13;
+    border:1px solid var(--line);
+    padding:10px 16px;
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#d2d2d2;
+}
+
+/* APPLICATION */
+
+.application-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.application-image img{
+    height:750px;
+    object-fit:cover;
+    border:1px solid var(--line);
+}
+
+.application-content h2{
+    font-size:3.5rem;
+    margin-bottom:25px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.application-content p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.application-box{
+    margin-top:40px;
+    background:var(--bg2);
+    border:1px solid var(--line);
+    padding:40px;
+}
+
+.application-box span{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    font-size:.75rem;
+    display:block;
+    margin-bottom:12px;
+}
+
+.application-box h3{
+    font-size:1.8rem;
+    margin-bottom:15px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.application-box p{
+    margin-bottom:0;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0a0b0d;
+    border-top:1px solid var(--line);
+    padding:90px 0 40px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:60px;
+    margin-bottom:60px;
+}
+
+.footer-grid h4{
+    margin-bottom:25px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.footer-grid ul{
+    list-style:none;
+}
+
+.footer-grid li{
+    margin-bottom:14px;
+    color:var(--muted);
+}
+
+.footer-description{
+    color:var(--muted);
+    max-width:420px;
+}
+
+.footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:30px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    color:var(--muted);
+}
+
+@media(max-width:980px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .application-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+Diamond<span>Ridge</span>
+</div>
+
+<nav class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="leadership.html">Leadership</a>
+<a href="contact.html" class="btn">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<span class="hero-tag">
+Global Careers
+</span>
+
+<h1>
+Build the Future of Vertical Engineering
+</h1>
+
+<p>
+Diamond Ridge Engineering Group recruits elite professionals across engineering,
+enterprise development, construction operations, sustainability systems,
+finance, architecture, and international infrastructure management.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Why Diamond Ridge
+</h2>
+
+<p class="section-text">
+Since 2001, Diamond Ridge Engineering Group has developed a global reputation
+for delivering enterprise-scale infrastructure systems and commercial skyscraper developments across international markets.
+</p>
+
+<div class="culture-grid">
+
+<div class="culture-card">
+
+<div class="culture-number">
+01
+</div>
+
+<h3>
+Global Impact
+</h3>
+
+<p>
+Work on internationally recognized commercial towers,
+institutional infrastructure systems, and enterprise-scale developments.
+</p>
+
+</div>
+
+<div class="culture-card">
+
+<div class="culture-number">
+02
+</div>
+
+<h3>
+Elite Engineering
+</h3>
+
+<p>
+Collaborate with industry-leading engineers, architects,
+and infrastructure specialists across multinational projects.
+</p>
+
+</div>
+
+<div class="culture-card">
+
+<div class="culture-number">
+03
+</div>
+
+<h3>
+Enterprise Growth
+</h3>
+
+<p>
+Advance within a corporation focused on long-term leadership,
+innovation, and global expansion initiatives.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="jobs">
+
+<div class="container">
+
+<h2 class="section-title">
+Current Opportunities
+</h2>
+
+<p class="section-text">
+Diamond Ridge Engineering Group is actively expanding its international
+operations and recruiting experienced professionals worldwide.
+</p>
+
+<div class="job-list">
+
+<div class="job-card">
+
+<div class="job-top">
+
+<div>
+<h3>Senior Structural Engineer</h3>
+</div>
+
+<div class="job-location">
+Chicago • United States
+</div>
+
+</div>
+
+<p>
+Lead engineering operations for large-scale commercial skyscraper
+developments and enterprise infrastructure systems.
+</p>
+
+<div class="job-tags">
+<span>Full Time</span>
+<span>Executive Engineering</span>
+<span>Global Projects</span>
+</div>
+
+</div>
+
+<div class="job-card">
+
+<div class="job-top">
+
+<div>
+<h3>Project Development Director</h3>
+</div>
+
+<div class="job-location">
+Dubai • UAE
+</div>
+
+</div>
+
+<p>
+Manage multinational development operations and coordinate
+high-value infrastructure partnerships throughout the Middle East.
+</p>
+
+<div class="job-tags">
+<span>Leadership</span>
+<span>Infrastructure</span>
+<span>International</span>
+</div>
+
+</div>
+
+<div class="job-card">
+
+<div class="job-top">
+
+<div>
+<h3>Commercial Architecture Lead</h3>
+</div>
+
+<div class="job-location">
+Singapore • Asia-Pacific
+</div>
+
+</div>
+
+<p>
+Direct commercial tower architectural planning and enterprise
+urban development initiatives across Asia-Pacific markets.
+</p>
+
+<div class="job-tags">
+<span>Architecture</span>
+<span>Commercial Towers</span>
+<span>Full Time</span>
+</div>
+
+</div>
+
+<div class="job-card">
+
+<div class="job-top">
+
+<div>
+<h3>Enterprise Finance Executive</h3>
+</div>
+
+<div class="job-location">
+New York • United States
+</div>
+
+</div>
+
+<p>
+Support global financial operations, enterprise investment systems,
+and multinational infrastructure growth strategies.
+</p>
+
+<div class="job-tags">
+<span>Finance</span>
+<span>Corporate</span>
+<span>Executive</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="application-grid">
+
+<div class="application-image">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop">
+
+</div>
+
+<div class="application-content">
+
+<h2>
+Join a Corporation Building the Modern Skyline
+</h2>
+
+<p>
+Diamond Ridge Engineering Group continues expanding globally under the leadership of CEO Andrew Alejandro, maintaining a commitment to enterprise engineering excellence and world-class infrastructure innovation.
+</p>
+
+<p>
+The corporation seeks professionals capable of operating within high-performance international environments focused on precision, leadership, and strategic development execution.
+</p>
+
+<p>
+Qualified candidates may submit executive resumes and professional portfolios directly to the corporate recruitment division.
+</p>
+
+<div class="application-box">
+
+<span>
+Recruitment Division
+</span>
+
+<h3>
+careers@diamondridge-group.com
+</h3>
+
+<p>
+Global recruitment and executive hiring department for Diamond Ridge Engineering Group.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="logo" style="margin-bottom:20px;">
+Diamond<span>Ridge</span>
+</div>
+
+<p class="footer-description">
+Diamond Ridge Engineering Group is a multinational engineering corporation specializing in commercial skyscrapers, institutional infrastructure systems, and enterprise-scale developments.
+</p>
+
+</div>
+
+<div>
+
+<h4>
+Corporate
+</h4>
+
+<ul>
+<li>About Us</li>
+<li>Leadership</li>
+<li>Investors</li>
+<li>Careers</li>
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+Global Offices
+</h4>
+
+<ul>
+<li>Chicago</li>
+<li>New York</li>
+<li>Dubai</li>
+<li>Singapore</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© 2026 Diamond Ridge Engineering Group. All rights reserved.
+</span>
+
+<span>
+Founded 2001 by Thomas Alejandro
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>

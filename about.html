@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Diamond Ridge Engineering Group</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#050506;
+    --bg2:#0e1014;
+    --bg3:#17191f;
+    --gold:#c58a42;
+    --gold-dark:#9f6b30;
+    --text:#ffffff;
+    --muted:#a1a4ab;
+    --line:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    line-height:1.7;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1450px,92%);
+    margin:auto;
+}
+
+section{
+    padding:120px 0;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:rgba(5,5,6,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+}
+
+.navbar{
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:1.3rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:40px;
+}
+
+.nav-links a{
+    color:var(--muted);
+    text-transform:uppercase;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.btn{
+    background:var(--gold);
+    padding:15px 28px;
+    color:white !important;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:var(--gold-dark);
+}
+
+/* HERO */
+
+.hero{
+    min-height:75vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    background:
+    linear-gradient(rgba(0,0,0,.70),rgba(0,0,0,.82)),
+    url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2200&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    max-width:950px;
+    padding-top:120px;
+}
+
+.hero-tag{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:.8rem;
+    margin-bottom:30px;
+    display:block;
+}
+
+.hero h1{
+    font-family:'Montserrat',sans-serif;
+    font-size:clamp(4rem,8vw,7rem);
+    line-height:.95;
+    margin-bottom:35px;
+    letter-spacing:-.05em;
+}
+
+.hero p{
+    color:#d5d5d5;
+    max-width:760px;
+    font-size:1.15rem;
+}
+
+/* SECTION TITLES */
+
+.section-title{
+    font-size:3.5rem;
+    margin-bottom:25px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.section-text{
+    color:var(--muted);
+    max-width:900px;
+    font-size:1.05rem;
+}
+
+/* STORY */
+
+.story-grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:90px;
+    align-items:center;
+}
+
+.story-image img{
+    height:720px;
+    object-fit:cover;
+}
+
+.story-content h2{
+    font-size:3.5rem;
+    margin-bottom:30px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.story-content p{
+    color:var(--muted);
+    margin-bottom:28px;
+    font-size:1.02rem;
+}
+
+/* STATS */
+
+.stats{
+    background:var(--bg2);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.stat-card{
+    background:var(--bg3);
+    border:1px solid var(--line);
+    padding:50px;
+}
+
+.stat-card h2{
+    font-size:3.2rem;
+    color:var(--gold);
+    font-family:'Montserrat',sans-serif;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    color:var(--muted);
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    margin-top:70px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    background:var(--line);
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    margin-bottom:90px;
+    position:relative;
+}
+
+.timeline-item:nth-child(even) .timeline-content{
+    order:2;
+}
+
+.timeline-year{
+    color:var(--gold);
+    font-size:3rem;
+    font-family:'Montserrat',sans-serif;
+    margin-bottom:20px;
+}
+
+.timeline-content{
+    background:var(--bg2);
+    border:1px solid var(--line);
+    padding:45px;
+}
+
+.timeline-content h3{
+    margin-bottom:18px;
+    font-size:1.7rem;
+    font-family:'Montserrat',sans-serif;
+}
+
+.timeline-content p{
+    color:var(--muted);
+}
+
+/* VALUES */
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.value-card{
+    background:var(--bg2);
+    border:1px solid var(--line);
+    padding:50px;
+}
+
+.value-card h3{
+    margin-bottom:20px;
+    font-size:1.6rem;
+    font-family:'Montserrat',sans-serif;
+}
+
+.value-card p{
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    background:#0a0b0d;
+    border-top:1px solid var(--line);
+    padding:90px 0 40px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:60px;
+    margin-bottom:60px;
+}
+
+.footer-grid h4{
+    margin-bottom:25px;
+    font-family:'Montserrat',sans-serif;
+}
+
+.footer-grid ul{
+    list-style:none;
+}
+
+.footer-grid li{
+    margin-bottom:14px;
+    color:var(--muted);
+}
+
+.footer-description{
+    color:var(--muted);
+    max-width:420px;
+}
+
+.footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:30px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    color:var(--muted);
+}
+
+@media(max-width:980px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .story-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        display:none;
+    }
+
+    .timeline-item{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+Diamond<span>Ridge</span>
+</div>
+
+<nav class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="leadership.html">Leadership</a>
+<a href="contact.html" class="btn">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container hero-content">
+
+<span class="hero-tag">
+Corporate Overview
+</span>
+
+<h1>
+Engineering Global Landmarks Since 2001.
+</h1>
+
+<p>
+Diamond Ridge Engineering Group is one of the world’s leading
+vertical engineering and commercial construction corporations,
+recognized for delivering large-scale skyscraper developments,
+institutional infrastructure systems, and multi-billion-dollar
+urban engineering projects across international markets.
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container story-grid">
+
+<div class="story-content">
+
+<h2>
+Built on Vision. Driven by Engineering.
+</h2>
+
+<p>
+Founded in 2001 by Alejandro Thomas, Diamond Ridge Engineering Group began as a specialized structural engineering company focused on high-rise commercial developments throughout North America.
+</p>
+
+<p>
+Under the leadership of Alejandro Thomas, the corporation rapidly expanded into international markets, establishing operations across Asia-Pacific, the Middle East, and Europe while becoming recognized for complex vertical engineering systems and enterprise-scale construction execution.
+</p>
+
+<p>
+Today, Diamond Ridge Engineering Group oversees billions of dollars in active developments worldwide, employing thousands of engineers, project managers, procurement specialists, and construction professionals across multiple continents.
+</p>
+
+<p>
+The corporation remains committed to innovation, precision engineering, environmental sustainability, and uncompromising construction standards while continuing to redefine modern metropolitan skylines around the world.
+</p>
+
+</div>
+
+<div class="story-image">
+
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1800&auto=format&fit=crop">
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+<div class="stat-card">
+<h2>$148B+</h2>
+<p>Total Global Project Valuation</p>
+</div>
+
+<div class="stat-card">
+<h2>38</h2>
+<p>Countries Operated In</p>
+</div>
+
+<div class="stat-card">
+<h2>22,000+</h2>
+<p>Global Workforce</p>
+</div>
+
+<div class="stat-card">
+<h2>340+</h2>
+<p>Completed Vertical Developments</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Corporate History
+</h2>
+
+<p class="section-text">
+Over two decades of global engineering growth, infrastructure innovation,
+and enterprise construction leadership.
+</p>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+<div class="timeline-year">2001</div>
+
+<h3>
+Company Founded
+</h3>
+
+<p>
+Alejandro Thomas establishes Diamond Ridge Engineering Group
+with a focus on commercial structural engineering and
+high-rise development systems.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+<div class="timeline-year">2008</div>
+
+<h3>
+International Expansion
+</h3>
+
+<p>
+The corporation launches international engineering operations
+through strategic expansion into Dubai, Singapore, and London.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+<div class="timeline-year">2013</div>
+
+<h3>
+Asia-Pacific Mega Development Contract
+</h3>
+
+<p>
+Diamond Ridge secures one of the largest mixed-use commercial
+tower contracts in Singapore valued at over $4.8 billion USD.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+<div class="timeline-year">2018</div>
+
+<h3>
+Global Workforce Milestone
+</h3>
+
+<p>
+The enterprise surpasses 15,000 global employees while expanding
+institutional infrastructure operations throughout Europe and the Middle East.
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item">
+
+<div class="timeline-content">
+<div class="timeline-year">2026</div>
+
+<h3>
+Enterprise Engineering Leadership
+</h3>
+
+<p>
+Diamond Ridge Engineering Group continues operating as one of
+the world’s premier multinational vertical engineering corporations.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<h2 class="section-title">
+Corporate Values
+</h2>
+
+<p class="section-text">
+The principles that define Diamond Ridge Engineering Group’s
+global operations and engineering philosophy.
+</p>
+
+<div class="values-grid">
+
+<div class="value-card">
+
+<h3>
+Engineering Excellence
+</h3>
+
+<p>
+We maintain uncompromising standards in structural design,
+construction execution, and project delivery.
+</p>
+
+</div>
+
+<div class="value-card">
+
+<h3>
+Global Innovation
+</h3>
+
+<p>
+Diamond Ridge continuously invests in advanced engineering systems,
+construction technologies, and sustainable infrastructure solutions.
+</p>
+
+</div>
+
+<div class="value-card">
+
+<h3>
+Operational Integrity
+</h3>
+
+<p>
+Transparency, accountability, and precision guide every aspect
+of our international development operations.
+</p>
+
+</div>
+
+<div class="value-card">
+
+<h3>
+Environmental Responsibility
+</h3>
+
+<p>
+The corporation is committed to sustainable urban development,
+low-carbon engineering systems, and environmentally conscious construction.
+</p>
+
+</div>
+
+<div class="value-card">
+
+<h3>
+Enterprise Leadership
+</h3>
+
+<p>
+Our executive leadership structure combines decades of engineering,
+construction, and international development expertise.
+</p>
+
+</div>
+
+<div class="value-card">
+
+<h3>
+Long-Term Partnerships
+</h3>
+
+<p>
+Diamond Ridge builds strategic relationships with governments,
+financial institutions, and global private-sector clients.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<div class="logo" style="margin-bottom:20px;">
+Diamond<span>Ridge</span>
+</div>
+
+<p class="footer-description">
+Diamond Ridge Engineering Group is a multinational vertical engineering corporation specializing in large-scale commercial developments and institutional infrastructure systems across global markets.
+</p>
+
+</div>
+
+<div>
+
+<h4>
+Corporate
+</h4>
+
+<ul>
+<li>About Us</li>
+<li>Leadership</li>
+<li>Investors</li>
+<li>Careers</li>
+</ul>
+
+</div>
+
+<div>
+
+<h4>
+Global Headquarters
+</h4>
+
+<ul>
+<li>Chicago</li>
+<li>New York</li>
+<li>Dubai</li>
+<li>Singapore</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<span>
+© 2026 Diamond Ridge Engineering Group. All rights reserved.
+</span>
+
+<span>
+Founded 2001 by Andrew Alejandro
+</span>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
